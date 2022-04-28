@@ -24,10 +24,10 @@
     NSMutableString *movePrint = [[NSMutableString alloc] initWithString:@""];
     
     if (isUser) {
-        moveToCheck = _userMove;
+        moveToCheck = self.userMove;
         [movePrint appendString:@"User "];
     } else {
-        moveToCheck = _computerMove;
+        moveToCheck = self.computerMove;
         [movePrint appendString:@"Computer "];
     }
     
@@ -51,17 +51,17 @@
 
 -(void)generateComputerMove {
     int randomNumber = arc4random_uniform(3);
-    _computerMove = randomNumber;
+    self.computerMove = randomNumber;
 }
 
 -(Player)checkWhoWon {
     // if there's a draw
-    if(_userMove == _computerMove) {
+    if(self.userMove == self.computerMove) {
         NSLog(@"There's a draw!");
         return Draw;
     // if the user's move is bigger than the computer's, it's either a win or a scissors-rock case
-    } else if(_userMove > _computerMove) {
-        if(_userMove == Scissors && _computerMove == Rock) {
+    } else if(self.userMove > self.computerMove) {
+        if(self.userMove == Scissors && self.computerMove == Rock) {
             NSLog(@"Computer won!");
             return Computer;
         } else {
@@ -70,7 +70,7 @@
         }
     // if the computer's move is bigger than the users's, it's either a win or a scissors-rock case
     } else {
-        if(_computerMove == Scissors && _userMove == Rock) {
+        if(self.computerMove == Scissors && self.userMove == Rock) {
             NSLog(@"User won!");
             return User;
         } else {
@@ -87,6 +87,11 @@
     Player winner = [self checkWhoWon];
     
     return winner;
+}
+
+/* Private Setters */
+-(void)setComputerMove:(Move)computerMove {
+    _computerMove = computerMove;
 }
 
 @end

@@ -21,22 +21,35 @@
 }
 
 -(void)playRoundWithMove: (Move)move {
-    _roundNumber += 1;
+    self.roundNumber += 1;
     RPSTurn *round = [[RPSTurn alloc] initWithMove:move];
     Player winner = [round playRound];
     
     switch (winner) {
         case User:
-            _userScore += 1;
+            self.userScore += 1;
             break;
             
         case Computer:
-            _computerScore += 1;
+            self.computerScore += 1;
             break;
             
         default:
             break;
     }
+}
+
+/* Private Setters */
+-(void)setRoundNumber:(int)roundNumber {
+    _roundNumber = roundNumber;
+}
+
+-(void)setUserScore:(int)userScore {
+    _userScore = userScore;
+}
+
+-(void)setComputerScore:(int)computerScore {
+    _computerScore = computerScore;
 }
 
 @end
