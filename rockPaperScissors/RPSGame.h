@@ -12,11 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RPSGame : NSObject
 
-@property (nonatomic) RPSTurn *roundOne;
-@property (nonatomic) RPSTurn *roundTwo;
-@property (nonatomic) RPSTurn *roundThree;
+@property (nonatomic, readonly) int userScore;
+@property (nonatomic, readonly) int computerScore;
+@property (nonatomic, readonly) int roundNumber;
 
--(instancetype)initWithMoveOne: (Move)MoveOne;
+-(instancetype)initWithMoveOne: (Move)moveOne;
+-(void)playRoundWithMove: (Move)move;
 
 @end
 

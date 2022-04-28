@@ -9,15 +9,34 @@
 
 @implementation RPSGame
 
--(instancetype)initWithMoveOne: (Move)MoveOne {
+-(instancetype)initWithMoveOne: (Move)moveOne {
     self = [super init];
     
     if(self) {
-        RPSTurn *roundOne = [[RPSTurn alloc] initWithMove:MoveOne];
-        _roundOne = roundOne;
+        _roundNumber = 0;
+        [self playRoundWithMove:moveOne];
     }
     
     return self;
+}
+
+-(void)playRoundWithMove: (Move)move {
+    _roundNumber += 1;
+    RPSTurn *round = [[RPSTurn alloc] initWithMove:move];
+    Player winner = [round playRound];
+    
+    switch (winner) {
+        case User:
+            _userScore += 1;
+            break;
+            
+        case Computer:
+            _computerScore += 1;
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
