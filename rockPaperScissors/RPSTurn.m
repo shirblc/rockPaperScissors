@@ -13,14 +13,14 @@
     self = [super init];
     
     if(self) {
-        _move = move;
+        _userMove = move;
     }
     
     return self;
 }
 
 -(void)printMove {
-    switch (_move) {
+    switch (_userMove) {
         case Rock:
             NSLog(@"You chose rock!");
             break;
@@ -33,6 +33,11 @@
             NSLog(@"You chose scissors!");
             break;
     }
+}
+
+-(void)generateComputerMove {
+    int randomNumber = arc4random_uniform(2);
+    _computerMove = randomNumber;
 }
 
 @end

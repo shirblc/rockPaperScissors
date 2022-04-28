@@ -17,10 +17,12 @@ typedef NS_ENUM(NSInteger, Move) {
     Scissors
 };
 
-@property (nonatomic) Move move;
+@property (nonatomic) Move userMove;
+@property (nonatomic, readonly) Move computerMove;
 
 -(instancetype)initWithMove: (Move)move;
 -(void)printMove;
+-(void)generateComputerMove;
 
 @end
 
