@@ -19,24 +19,38 @@
     return self;
 }
 
--(void)printMove {
-    switch (_userMove) {
+-(void)printMove: (bool)isUser {
+    Move moveToCheck;
+    NSMutableString *movePrint = [[NSMutableString alloc] initWithString:@""];
+    
+    if (isUser) {
+        moveToCheck = _userMove;
+        [movePrint appendString:@"User "];
+    } else {
+        moveToCheck = _computerMove;
+        [movePrint appendString:@"Computer "];
+    }
+    
+    switch (moveToCheck) {
         case Rock:
-            NSLog(@"You chose rock!");
+            [movePrint appendString:@"chose rock!"];
+            NSLog(@"%@", movePrint);
             break;
             
         case Paper:
-            NSLog(@"You chose paper!");
+            [movePrint appendString:@"chose paper!"];
+            NSLog(@"%@", movePrint);
             break;
             
         case Scissors:
-            NSLog(@"You chose scissors!");
+            [movePrint appendString:@"chose scissors!"];
+            NSLog(@"%@", movePrint);
             break;
     }
 }
 
 -(void)generateComputerMove {
-    int randomNumber = arc4random_uniform(2);
+    int randomNumber = arc4random_uniform(3);
     _computerMove = randomNumber;
 }
 

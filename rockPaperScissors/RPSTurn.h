@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, Move) {
 @property (nonatomic, readonly) Move computerMove;
 
 -(instancetype)initWithMove: (Move)move;
--(void)printMove;
+-(void)printMove: (bool)isUser;
 -(void)generateComputerMove;
 
 @end
