@@ -27,9 +27,7 @@ typedef NS_ENUM(NSInteger, Player) {
 @property (nonatomic, readonly) Move computerMove;
 
 -(instancetype)initWithMove: (Move)move;
--(void)printMove: (bool)isUser;
--(void)generateComputerMove;
--(Player)checkWhoWon;
+-(Player)playRound;
 
 @end
 

@@ -80,4 +80,13 @@
     }
 }
 
+-(Player)playRound {
+    [self printMove:true];
+    [self generateComputerMove];
+    [self printMove:false];
+    Player winner = [self checkWhoWon];
+    
+    return winner;
+}
+
 @end
