@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(instancetype)initWithMoveOne: (Move)moveOne;
 -(void)playRoundWithMove: (Move)move;
+-(NSInteger)getUserMove;
+-(NSInteger)shouldContinueGame;
 
 @end
 
