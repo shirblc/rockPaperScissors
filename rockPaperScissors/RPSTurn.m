@@ -14,6 +14,7 @@
     
     if(self) {
         _move = move;
+        [self printMove];
     }
     
     return self;

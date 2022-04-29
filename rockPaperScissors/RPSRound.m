@@ -13,6 +13,7 @@
     self = [super init];
     
     if(self) {
+        NSLog(@"User:");
         _userTurn = [[RPSTurn alloc] initWithMove:move];
     }
     
@@ -23,6 +24,7 @@
     self = [super init];
     
     if(self) {
+        NSLog(@"User:");
         _userTurn = turn;
     }
     
@@ -31,6 +33,7 @@
 
 -(void)generateComputerMove {
     int randomNumber = arc4random_uniform(3);
+    NSLog(@"Computer:");
     self.computerMove = [[RPSTurn alloc] initWithMove:randomNumber];
 }
 
