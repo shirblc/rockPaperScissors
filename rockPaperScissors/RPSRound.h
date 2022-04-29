@@ -18,9 +18,11 @@ typedef NS_ENUM(NSInteger, Player) {
 
 @interface RPSRound : NSObject
 
-@property (nonatomic) Move userMove;
-@property (nonatomic, readonly) Move computerMove;
+@property (nonatomic) RPSTurn *userTurn;
+@property (nonatomic, readonly) RPSTurn *computerTurn;
 
+-(instancetype)initWithMove: (Move)move;
+-(instancetype)initWithTurn: (RPSTurn*)turn;
 -(Player)playRound;
 
 @end

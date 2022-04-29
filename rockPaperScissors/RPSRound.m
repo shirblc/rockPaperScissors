@@ -9,19 +9,39 @@
 
 @implementation RPSRound
 
+-(instancetype)initWithMove:(Move)move {
+    self = [super init];
+    
+    if(self) {
+        _userTurn = [[RPSTurn alloc] initWithMove:move];
+    }
+    
+    return self;
+}
+
+-(instancetype)initWithTurn: (RPSTurn*)turn {
+    self = [super init];
+    
+    if(self) {
+        _userTurn = turn;
+    }
+    
+    return self;
+}
+
 -(void)generateComputerMove {
     int randomNumber = arc4random_uniform(3);
-    self.computerMove = randomNumber;
+    self.computerMove = [[RPSTurn alloc] initWithMove:randomNumber];
 }
 
 -(Player)checkWhoWon {
     // if there's a draw
-    if(self.userMove == self.computerMove) {
+    if(self.userTurn.move == self.computerTurn.move) {
         NSLog(@"There's a draw!");
         return Draw;
     // if the user's move is bigger than the computer's, it's either a win or a scissors-rock case
-    } else if(self.userMove > self.computerMove) {
-        if(self.userMove == Scissors && self.computerMove == Rock) {
+    } else if(self.userTurn.move > self.computerTurn.move) {
+        if(self.userTurn.move == Scissors && self.computerTurn.move == Rock) {
             NSLog(@"Computer won!");
             return Computer;
         } else {
@@ -30,7 +50,7 @@
         }
     // if the computer's move is bigger than the users's, it's either a win or a scissors-rock case
     } else {
-        if(self.computerMove == Scissors && self.userMove == Rock) {
+        if(self.computerTurn.move == Scissors && self.userTurn.move == Rock) {
             NSLog(@"User won!");
             return User;
         } else {
@@ -48,8 +68,8 @@
 }
 
 /* Private Setters */
--(void)setComputerMove:(Move)computerMove {
-    _computerMove = computerMove;
+-(void)setComputerMove:(RPSTurn*)computerTurn {
+    _computerTurn = computerTurn;
 }
 
 @end
