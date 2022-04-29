@@ -17,17 +17,9 @@ typedef NS_ENUM(NSInteger, Move) {
     Scissors
 };
 
-typedef NS_ENUM(NSInteger, Player) {
-    User,
-    Computer,
-    Draw
-};
-
-@property (nonatomic) Move userMove;
-@property (nonatomic, readonly) Move computerMove;
+@property (nonatomic) Move move;
 
 -(instancetype)initWithMove: (Move)move;
--(Player)playRound;
 
 @end
 
