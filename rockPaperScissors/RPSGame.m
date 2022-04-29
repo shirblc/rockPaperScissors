@@ -9,6 +9,16 @@
 
 @implementation RPSGame
 
+-(instancetype)init {
+    self = [super init];
+    
+    if(self) {
+        _roundNumber = 0;
+    }
+    
+    return self;
+}
+
 -(instancetype)initWithMoveOne: (Move)moveOne {
     self = [super init];
     
@@ -22,7 +32,7 @@
 
 -(void)playRoundWithMove: (Move)move {
     self.roundNumber += 1;
-    RPSTurn *round = [[RPSTurn alloc] initWithMove:move];
+    RPSRound *round = [[RPSRound alloc] initWithMove:move];
     Player winner = [round playRound];
     
     switch (winner) {

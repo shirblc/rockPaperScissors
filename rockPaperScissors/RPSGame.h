@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RPSTurn.h"
+#import "RPSRound.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
